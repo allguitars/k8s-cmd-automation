@@ -8,6 +8,8 @@ INFO='\033[1;34m'
 PMPT='\033[32m'
 WARN='\033[33m'
 
+CUR_DIR=$(dirname "$0")
+
 show_menu() {
 	echo "---------------------"	
 	echo "* * * * TASKS * * * *"
@@ -21,7 +23,7 @@ read_option(){
 	local CHOICE
     read -p "Enter choice [1 - 3]: " CHOICE
 	case $CHOICE in
-		1) . "switch-context.sh" ;;
+		1) . "$CUR_DIR/switch-context.sh" ;;
 		2) echo "Under construction" ;;
 		3) exit 0 ;;
 		*) echo -e "${ERR}Wrong input...${STD}" && sleep 2
