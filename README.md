@@ -8,6 +8,6 @@ This script is to automate the day-to-day Kubernestes operations.
 
 2. if you are using **Cmder**, set an alias as following
 
-    ``alias do=sh do.sh``
+    ``alias do=sh path\to\script_folder\do.sh``
 
 Now you can just type ``do`` in the **Cmder** to lauch the script no matter which directory you are in.
