@@ -33,7 +33,7 @@ clear
 
 # Command args: $1
 KEYWORD=$1
-TIMEOUT=$2
+TIME_LIMIT=$2
 
 # ----- Keep testing until the status becomes Running, or time runs out -----
 i=0
@@ -43,7 +43,7 @@ START=$(date +%s)
 OUTPUT=$(get_pod)
 echo -e "\n\n\n\n\n$OUTPUT"
 
-while [[ $(test_status_running "$OUTPUT") == false ]] && [[ $TIME_PASSED -lt $TIMEOUT ]]; do   # Still not All Running AND not timed out yet
+while [[ $(test_status_running "$OUTPUT") == false ]] && [[ $TIME_PASSED -lt $TIME_LIMIT ]]; do   # Still not All Running AND not timed out yet
 
     TIME_PASSED=$(cal_time_passed $START)
     echo -e "\nTime passed: $TIME_PASSED"
