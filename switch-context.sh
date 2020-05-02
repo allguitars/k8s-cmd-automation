@@ -65,13 +65,13 @@ switch_contexts() {
     {
         read                                               # skip the first line using a separate process
         while read LINE; do
-        if [ -z "${LINE##*\**}" ]; then                    # If this line contains "\*" (escaped)
-            CURRENT=$(echo "$LINE" | awk '{print $2}') 
-            NAMES[INDEX]=$CURRENT
-            CURRENT_INDEX=$(($INDEX+1))
-        else
-            NAMES[INDEX]=$(echo "$LINE" | awk '{print $1}')
-        fi
+            if [ -z "${LINE##*\**}" ]; then                    # If this line contains "\*" (escaped)
+                CURRENT=$(echo "$LINE" | awk '{print $2}') 
+                NAMES[INDEX]=$CURRENT
+                CURRENT_INDEX=$(($INDEX+1))
+            else
+                NAMES[INDEX]=$(echo "$LINE" | awk '{print $1}')
+            fi
 
         ((INDEX++))
         done 
